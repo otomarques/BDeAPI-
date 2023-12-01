@@ -1,0 +1,32 @@
+<configuration>
+
+    <!-- Configuração do console -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configuração do arquivo -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>logs.txt</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configuração do root logger -->
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+    <!-- Configuração específica para o pacote org.springframework.web -->
+    <logger name="org.springframework.web" level="debug" />
+
+    <!-- Configuração específica para o pacote org.hibernate -->
+    <logger name="org.hibernate" level="warn" />
+
+
+</configuration>
+
